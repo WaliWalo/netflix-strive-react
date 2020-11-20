@@ -1,57 +1,62 @@
 import React, { Component } from "react";
-import {Container, Row, Col, Button} from "react-bootstrap"
+import { Container, Row, Col, Button } from "react-bootstrap"
 import "../footer/footer.css"
+import Facebook from "../footer/fb.png"
+import Instagram from "../footer/ig.png"
+import Twitter from "../footer/twitter.png"
+import Youtube from "../footer/yt.png"
+import CC from "../footer/cc.png"
 
 
 export default class Footer extends Component {
   render() {
     return (
       <div>
-        <Footer>
-      <Container fluid className="footer">
+        <footer>
+      <Container fluid className="footer text-left">
 			  <Row>
 				  <Col md={2}></Col>
           <Col md={8}>
-				    {/* className="my-2" id="sns"> */}
-					    <img src="./img/fb.png" alt="" height="36" />
-					    <img src="./img/ig.png" alt="" height="36" />
-					    <img src="./img/twitter.png" alt="" height="36" />
-					    <img src="./img/yt.png" alt="" height="36" />
+				    
+					    <a href="#" target="blank"><img src={Facebook} alt="" height="36"  /></a>
+					    <a href="#" target="blank"><img src={Instagram} alt="" height="36" /></a>
+					    <a href="#" target="blank"><img src={Twitter} alt="" height="36" /></a>
+					    <a href="#" target="blank"><img src={Youtube} alt="" height="36" /></a>
             </Col>
             <Col md={2}></Col>
             </Row>
             
-            <Row>
+            <Row className="mt-5">
               <Col md={2}></Col>
               <Col md={2}>
 					      <p>
-						    Audio and Subtitles<br />
-						    Media Center<br />
-						    Privacy <br />
-						    Contact Us <br />
+						    <a href="#">Audio and Subtitles<br /></a>
+						    <a href="#">Media Center<br /></a>
+						    <a href="#">Privacy <br /></a>
+						    <a href="#">Contact Us <br /></a>
 					      </p>
 					    </Col>
 					    <Col md={2}>
 					      <p>
-						    Audio Description <br />
-						    Investor Relations<br />
-						    Legal Notices <br />
+						    <a href="#">Audio Description <br /></a>
+						    <a href="#">Investor Relations<br /></a>
+						    <a href="#">Legal Notices <br /></a>
 						    <br />
 					      </p>
 					    </Col>
 					    <Col md={2}>
 					      <p>
-						    Help Center<br />
-						    Jobs<br />
-						    Cookie Preferences<br />
+						    <a href="#">Help Center<br /></a>
+						    <a href="#">Jobs<br /></a>
+						    <a href="#">Cookie Preferences<br /></a>
 						    <br />
 					      </p>
 					    </Col>
 					    <Col md={2}>
 					      <p>
-						    Gift Cards<br />
-						    Terms of Use<br />
-						    Corporate Information <br />
+						    <a href="#">Gift Cards<br /></a>
+						    <a href="#">Terms of Use<br /></a>
+						    <a href="#">Corporate Information <br /></a>
 						    <br />
 					      </p>
               </Col>
@@ -59,14 +64,16 @@ export default class Footer extends Component {
             </Row>
             <Row>
               <Col md={2}></Col>
-              <Col md={8}>
+              <Col md={2}>
 				    <div>
 					    <Button className="btn btn-outline-dark">
 					    Service Code
 					    </Button>
-				    </div>
+							</div>
+							</Col>
+              <Col md={6}>
 				    <div>
-					    <img src="./img/cc.png" alt="" height="8" /><span class="text-dark">
+					    <a href="#" target="blank"><img src={CC} alt="" height="8" /></a><span class="text-dark">
 					    2020 Stivix CC0 - Freeing content globally without
 					    restrictions</span>
 				    </div>
@@ -74,7 +81,7 @@ export default class Footer extends Component {
           <Col md={2}></Col>
         </Row>
           </Container>
-          </Footer>
+          </footer>
     </div>
     )
   }

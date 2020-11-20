@@ -8,21 +8,26 @@ hr {
   margin-bottom: 5px;
 }
 
-/* #paypal,
-#ultraHD {
-  filter: brightness(0%);
-} */
+a {
+  color: blue;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: blue;
+}
 
 /* footer css */
-.footer {
+footer {
   background-color: white;
 }
 
-.footer img {
+footer img {
   margin: auto 8px;
   fill: white;
 }
-.footer p {
+footer p {
   line-height: 2rem;
   color: #aaa;
 }
