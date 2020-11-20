@@ -27,6 +27,7 @@ function App() {
         onHide={() => setModalShow(false)}
       />
       <ListMovies />
+     
       <Footer />
     </div>
   );
