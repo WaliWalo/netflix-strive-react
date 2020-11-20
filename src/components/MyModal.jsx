@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import Comment from "./Comment";
 
 export default function MyModal(props) {
@@ -13,13 +13,28 @@ export default function MyModal(props) {
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           Reviews
-          <div>
-            <img
-              src={props.poster}
-              alt={props.movie}
-              style={{ height: "20rem", width: "12rem" }}
-            ></img>
-          </div>
+          <Container>
+            <Row>
+              <Col sm={4}>
+                <img
+                  src={props.poster}
+                  alt={props.movie}
+                  style={{ height: "20rem", width: "12rem" }}
+                ></img>
+              </Col>
+              <Col sm={8}>
+                <p>
+                  <strong>Title: </strong> {props.moviename}
+                </p>
+                <p>
+                  <strong>Year: </strong> {props.movieyear}
+                </p>
+                <p>
+                  <strong>Type: </strong> {props.movietype}
+                </p>
+              </Col>
+            </Row>
+          </Container>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

@@ -20,6 +20,9 @@ function App() {
       <MyModal
         movie="tt1756545"
         poster="https://m.media-amazon.com/images/M/MV5BNDM0YzMyNGUtMTU1Yy00OTE2LWE5NzYtZDZhMTBmN2RkNjg3XkEyXkFqcGdeQXVyMzU5NjU1MDA@._V1_SX300.jpg"
+        moviename="Harry Potter and the Deathly Hallows: Part 2"
+        movieyear="2011"
+        movietype="movie"
         show={modalShow}
         onHide={() => setModalShow(false)}
       />

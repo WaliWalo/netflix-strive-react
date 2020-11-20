@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AddComment from "./AddComment";
-import { ListGroup, Button, FormControl } from "react-bootstrap";
+import { ListGroup, Button, FormControl, Badge } from "react-bootstrap";
 
 export default class Comment extends Component {
   constructor(props) {
@@ -94,6 +94,7 @@ export default class Comment extends Component {
       modified: true,
     });
   }
+
   render() {
     return (
       <>
@@ -104,20 +105,33 @@ export default class Comment extends Component {
             className="mr-sm-2"
             onChange={(e) => this.handleSearch(e.target.value)}
           />
-          {this.state.comments.map((comment, index) => (
-            <ListGroup key={index}>
-              <ListGroup.Item>
-                <p>Comment: {comment.comment}</p> <p>Rating: {comment.rate}</p>
-                <Button
-                  onClick={() => {
-                    this.removeComment(comment._id);
-                  }}
-                >
-                  Remove Comment
-                </Button>
-              </ListGroup.Item>
-            </ListGroup>
-          ))}
+          {this.state.comments.map((comment, index) => {
+            let variant;
+            if (comment.rate >= 4) {
+              variant = "success";
+            } else if (comment.rate === 3) {
+              variant = "warning";
+            } else {
+              variant = "danger";
+            }
+            return (
+              <ListGroup key={index}>
+                <ListGroup.Item>
+                  <p>Comment: {comment.comment}</p>{" "}
+                  <p>
+                    Rating: <Badge variant={variant}>{comment.rate}</Badge>
+                  </p>
+                  <Button
+                    onClick={() => {
+                      this.removeComment(comment._id);
+                    }}
+                  >
+                    Remove Comment
+                  </Button>
+                </ListGroup.Item>
+              </ListGroup>
+            );
+          })}
         </div>
         <AddComment bookid={this.props.movieid} modify={this.handler} />
       </>
