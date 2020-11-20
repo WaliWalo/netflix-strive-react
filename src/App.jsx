@@ -1,4 +1,5 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "./components/Carousel";
 import Footer from "./components/Footer";
 import ListMovies from "./components/ListMovies";

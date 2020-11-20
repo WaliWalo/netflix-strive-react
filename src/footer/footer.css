@@ -1,0 +1,28 @@
+hr {
+  color: silver;
+  border: 1px solid silver;
+}
+
+.col {
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+
+/* #paypal,
+#ultraHD {
+  filter: brightness(0%);
+} */
+
+/* footer css */
+.footer {
+  background-color: white;
+}
+
+.footer img {
+  margin: auto 8px;
+  fill: white;
+}
+.footer p {
+  line-height: 2rem;
+  color: #aaa;
+}
