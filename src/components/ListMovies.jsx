@@ -17,16 +17,16 @@ export default class ListMovies extends Component {
 
       let arraymovies = await response.json();
       let movies = arraymovies.Search;
-
+      
       if (query === "harry") {
         console.log(movies);
-        this.setState({ harrypoter: movies });
+        this.setState({ harrypoter: movies.slice(0,6) });
       } else if (query === "superman") {
         console.log(movies);
-        this.setState({ superman: movies });
+        this.setState({ superman: movies.slice(0,6) });
       } else {
         console.log(movies);
-        this.setState({ batman: movies });
+        this.setState({ batman: movies.slice(0,6) });
       }
     } catch (e) {
       console.log(e);
@@ -41,32 +41,36 @@ export default class ListMovies extends Component {
     return (
       <div>
         <Container>
-          <Row>
+        <h3>Trending now</h3>
+        <Row style={{marginBottom:"20px"}}>
+            
             {this.state.harrypoter.map((movie) => (
               <Col
                 xs={6}
                 md={3}
                 lg={2}
                 key={`movieId${movie.imdbID}`}
-                className="mb-3"
+                className="mb-5 px-1"
               >
                 <SingleMovie obj={movie}></SingleMovie>
               </Col>
             ))}
           </Row>
-          <Row>
+          <h3>Watch it again</h3>
+          <Row style={{marginBottom:"20px"}}>
             {this.state.superman.map((movie) => (
               <Col
                 xs={6}
                 md={3}
                 lg={2}
                 key={`movieId${movie.imdbID}`}
-                className="mb-3"
+                className="mb-5 px-1"
               >
                 <SingleMovie obj={movie}></SingleMovie>
               </Col>
             ))}
           </Row>
+          <h3>New Releases</h3>
           <Row>
             {this.state.batman.map((movie) => (
               <Col
@@ -74,7 +78,7 @@ export default class ListMovies extends Component {
                 md={3}
                 lg={2}
                 key={`movieId${movie.imdbID}`}
-                className="mb-3"
+                className="mb-3 px-1"
               >
                 <SingleMovie obj={movie}></SingleMovie>
               </Col>
