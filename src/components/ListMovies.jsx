@@ -17,16 +17,13 @@ export default class ListMovies extends Component {
 
       let arraymovies = await response.json();
       let movies = arraymovies.Search;
-      
+
       if (query === "harry") {
-        console.log(movies);
-        this.setState({ harrypoter: movies.slice(0,6) });
+        this.setState({ harrypoter: movies.slice(0, 6) });
       } else if (query === "superman") {
-        console.log(movies);
-        this.setState({ superman: movies.slice(0,6) });
+        this.setState({ superman: movies.slice(0, 6) });
       } else {
-        console.log(movies);
-        this.setState({ batman: movies.slice(0,6) });
+        this.setState({ batman: movies.slice(0, 6) });
       }
     } catch (e) {
       console.log(e);
@@ -41,9 +38,8 @@ export default class ListMovies extends Component {
     return (
       <div>
         <Container>
-        <h3>Trending now</h3>
-        <Row style={{marginBottom:"20px"}}>
-            
+          <h3>Trending now</h3>
+          <Row style={{ marginBottom: "20px" }}>
             {this.state.harrypoter.map((movie) => (
               <Col
                 xs={6}
@@ -57,7 +53,7 @@ export default class ListMovies extends Component {
             ))}
           </Row>
           <h3>Watch it again</h3>
-          <Row style={{marginBottom:"20px"}}>
+          <Row style={{ marginBottom: "20px" }}>
             {this.state.superman.map((movie) => (
               <Col
                 xs={6}
