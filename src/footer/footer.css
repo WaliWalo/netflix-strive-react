@@ -8,22 +8,23 @@ hr {
   margin-bottom: 5px;
 }
 
-a {
-  color: blue;
+a :hover {
+  text-decoration: underline;
+  color: silver;
 }
 
 a:link,
 a:visited {
   text-decoration: none;
-  color: blue;
+  color: silver;
 }
 
 /* footer css */
 footer {
-  background-color: white;
+  background-color: #141414;
 }
 
-footer img {
+img {
   margin: auto 8px;
   fill: white;
 }

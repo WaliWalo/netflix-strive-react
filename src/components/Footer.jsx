@@ -18,9 +18,9 @@ export default class Footer extends Component {
 				  <Col md={2}></Col>
           <Col md={8}>
 				    
-					    <a href="#" target="blank"><img src={Facebook} alt="" height="36"  /></a>
-					    <a href="#" target="blank"><img src={Instagram} alt="" height="36" /></a>
-					    <a href="#" target="blank"><img src={Twitter} alt="" height="36" /></a>
+					    <a href="#" target="blank"><img className="bg-white rounded" src={Facebook} alt="" height="36"  /></a>
+					    <a href="#" target="blank"><img className="bg-white rounded" src={Instagram} alt="" height="36" /></a>
+					    <a href="#" target="blank"><img className="bg-white rounded" src={Twitter} alt="" height="36" /></a>
 					    <a href="#" target="blank"><img src={Youtube} alt="" height="36" /></a>
             </Col>
             <Col md={2}></Col>
@@ -66,14 +66,14 @@ export default class Footer extends Component {
               <Col md={2}></Col>
               <Col md={2}>
 				    <div>
-					    <Button className="btn btn-outline-dark">
+					    <Button className="btn-secondary btn-outline-dark">
 					    Service Code
 					    </Button>
 							</div>
 							</Col>
               <Col md={6}>
 				    <div>
-					    <a href="#" target="blank"><img src={CC} alt="" height="8" /></a><span class="text-dark">
+					    <a href="#" target="blank"><img className="bg-white rounded" src={CC} alt="" height="8" /></a><span class="text-dark">
 					    2020 Stivix CC0 - Freeing content globally without
 					    restrictions</span>
 				    </div>
