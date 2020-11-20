@@ -15,14 +15,14 @@ export default function MyModal(props) {
           Reviews
           <Container>
             <Row>
-              <Col sm={4}>
+              <Col sm={6}>
                 <img
                   src={props.poster}
                   alt={props.movie}
                   style={{ height: "20rem", width: "12rem" }}
                 ></img>
               </Col>
-              <Col sm={8}>
+              <Col sm={6}>
                 <p>
                   <strong>Title: </strong> {props.moviename}
                 </p>

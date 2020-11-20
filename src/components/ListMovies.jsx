@@ -7,6 +7,8 @@ export default class ListMovies extends Component {
     harrypoter: [],
     superman: [],
     batman: [],
+    searchQuery: [],
+    emptyQuery: [],
   };
 
   myfetch = async (query) => {
@@ -22,8 +24,12 @@ export default class ListMovies extends Component {
         this.setState({ harrypoter: movies.slice(0, 6) });
       } else if (query === "superman") {
         this.setState({ superman: movies.slice(0, 6) });
-      } else {
+      } else if (query === "batman") {
         this.setState({ batman: movies.slice(0, 6) });
+      } else if (movies) {
+        this.setState({ searchQuery: movies });
+      } else {
+        this.setState({ searchQuery: this.state.emptyQuery });
       }
     } catch (e) {
       console.log(e);
@@ -34,10 +40,30 @@ export default class ListMovies extends Component {
     await this.myfetch("superman");
     await this.myfetch("batman");
   };
+  async componentDidUpdate(prevProp) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.query !== prevProp.query) {
+      this.myfetch(this.props.query);
+    }
+  }
   render() {
     return (
       <div>
         <Container>
+          <h3>{this.props.query}</h3>
+          <Row style={{ marginBottom: "20px" }}>
+            {this.state.searchQuery.map((movie) => (
+              <Col
+                xs={6}
+                md={3}
+                lg={2}
+                key={`movieId${movie.imdbID}`}
+                className="mb-5 px-1"
+              >
+                <SingleMovie obj={movie}></SingleMovie>
+              </Col>
+            ))}
+          </Row>
           <h3>Trending now</h3>
           <Row style={{ marginBottom: "20px" }}>
             {this.state.harrypoter.map((movie) => (
