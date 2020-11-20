@@ -2,7 +2,7 @@ import "./NavBar.css";
 import React, { Component } from "react";
 import ListMovies from "./ListMovies";
 import { FormControl, InputGroup, Dropdown } from "react-bootstrap";
-
+import Carousel from "./Carousel";
 export default class NavBar extends Component {
   state = {
     query: "",
@@ -110,7 +110,7 @@ export default class NavBar extends Component {
             </div>
           </div>
         </div>
-
+        <Carousel />
         <ListMovies query={this.state.query} />
       </div>
     );

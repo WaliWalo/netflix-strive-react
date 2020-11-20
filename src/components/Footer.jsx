@@ -11,7 +11,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div style={{ backgroundColor: "rgb(44, 44, 44)" }}>
-        <Container className="footer text-left">
+        <Container className="footer text-left pt-3">
           <Row>
             <Col md={2}></Col>
             <Col md={8}>
