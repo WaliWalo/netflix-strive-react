@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import MyModal from "./MyModal";
+import "./SingleMovie.css";
+
 export default class SingleMovie extends Component {
   state = {
     modalShow: false,
@@ -9,7 +11,7 @@ export default class SingleMovie extends Component {
       <>
         <img
           src={this.props.obj.Poster}
-          className="img-fluid"
+          className="img-fluid zoom"
           alt=""
           style={{ width: "11rem", height: "10rem" }}
           onClick={() => this.setState({ modalShow: true })}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SingleMovie from "./SingleMovie";
+import WarningSign from "./WarningSign";
 
 export default class ListMovies extends Component {
   state = {
@@ -9,9 +10,11 @@ export default class ListMovies extends Component {
     batman: [],
     searchQuery: [],
     emptyQuery: [],
+    loading: true,
   };
 
   myfetch = async (query) => {
+    this.setState({ loading: true });
     try {
       let response = await fetch(
         `http://www.omdbapi.com/?i=tt3896198&apikey=41290999&s=${query}`
@@ -21,18 +24,19 @@ export default class ListMovies extends Component {
       let movies = arraymovies.Search;
 
       if (query === "harry") {
-        this.setState({ harrypoter: movies.slice(0, 6) });
+        this.setState({ harrypoter: movies.slice(0, 6), loading: false });
       } else if (query === "superman") {
-        this.setState({ superman: movies.slice(0, 6) });
+        this.setState({ superman: movies.slice(0, 6), loading: false });
       } else if (query === "batman") {
-        this.setState({ batman: movies.slice(0, 6) });
+        this.setState({ batman: movies.slice(0, 6), loading: false });
       } else if (movies) {
-        this.setState({ searchQuery: movies });
+        this.setState({ searchQuery: movies, loading: false });
       } else {
-        this.setState({ searchQuery: this.state.emptyQuery });
+        this.setState({ searchQuery: this.state.emptyQuery, loading: false });
       }
     } catch (e) {
       console.log(e);
+      this.setState({ loading: false });
     }
   };
   componentDidMount = async () => {
@@ -49,22 +53,28 @@ export default class ListMovies extends Component {
   render() {
     return (
       <div>
-        <Container>
-          <h3>{this.props.query}</h3>
-          <Row style={{ marginBottom: "20px" }}>
-            {this.state.searchQuery.map((movie) => (
-              <Col
-                xs={6}
-                md={3}
-                lg={2}
-                key={`movieId${movie.imdbID}`}
-                className="mb-5 px-1"
-              >
-                <SingleMovie obj={movie}></SingleMovie>
-              </Col>
-            ))}
-          </Row>
-          <h3>Trending now</h3>
+        <Container className="p-0">
+          <h3>{this.state.loading ? "Loading..." : this.props.query}</h3>
+          {this.state.searchQuery.length === 0 &&
+          this.props.query.length > 0 ? (
+            <WarningSign query={this.props.query} />
+          ) : (
+            <Row style={{ marginBottom: "20px" }}>
+              {this.state.searchQuery.map((movie) => (
+                <Col
+                  xs={6}
+                  md={3}
+                  lg={2}
+                  key={`movieId${movie.imdbID}`}
+                  className="mb-5 px-1"
+                >
+                  <SingleMovie obj={movie}></SingleMovie>
+                </Col>
+              ))}
+            </Row>
+          )}
+          <h3>{this.state.loading ? "Loading..." : "Trending now"}</h3>
+
           <Row style={{ marginBottom: "20px" }}>
             {this.state.harrypoter.map((movie) => (
               <Col
@@ -78,7 +88,8 @@ export default class ListMovies extends Component {
               </Col>
             ))}
           </Row>
-          <h3>Watch it again</h3>
+          <h3>{this.state.loading ? "Loading..." : "Watch It Again"}</h3>
+
           <Row style={{ marginBottom: "20px" }}>
             {this.state.superman.map((movie) => (
               <Col
@@ -92,7 +103,8 @@ export default class ListMovies extends Component {
               </Col>
             ))}
           </Row>
-          <h3>New Releases</h3>
+          <h3>{this.state.loading ? "Loading..." : "New Releases"}</h3>
+
           <Row>
             {this.state.batman.map((movie) => (
               <Col
