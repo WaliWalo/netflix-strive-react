@@ -8,6 +8,9 @@ import ShowDetail from "./components/ShowDetail";
 import Home from "./components/Home";
 import TvShows from "./components/TvShows";
 function App() {
+  //state
+  //function changes state
+
   return (
     <div className="App">
       <Router>
