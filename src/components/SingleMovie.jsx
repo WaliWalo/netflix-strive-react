@@ -14,7 +14,10 @@ export default class SingleMovie extends Component {
           className="img-fluid zoom"
           alt=""
           style={{ width: "11rem", height: "10rem" }}
-          onClick={() => this.setState({ modalShow: true })}
+          // onClick={() => this.setState({ modalShow: true })}
+          onClick={() =>
+            this.props.history.push("/details/" + this.props.obj.imdbID)
+          }
         />
 
         <MyModal

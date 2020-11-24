@@ -54,7 +54,9 @@ export default class AddComment extends Component {
     return (
       <Form onSubmit={this.handleSubmit}>
         <FormGroup>
-          <Form.Label htmlFor="rate">Rating: </Form.Label>
+          <Form.Label htmlFor="rate" style={{ color: "white" }}>
+            Rating:{" "}
+          </Form.Label>
           <Form.Control
             name="rate"
             id="rate"
@@ -68,7 +70,9 @@ export default class AddComment extends Component {
             <option>4</option>
             <option>5</option>
           </Form.Control>
-          <FormLabel htmlFor="comment">Add Comment</FormLabel>
+          <FormLabel htmlFor="comment" style={{ color: "white" }}>
+            Add Comment
+          </FormLabel>
           <Form.Control
             name="comment"
             id="comment"

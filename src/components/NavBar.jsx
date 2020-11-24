@@ -1,12 +1,12 @@
 import "./NavBar.css";
 import React, { Component } from "react";
-import ListMovies from "./ListMovies";
 import { FormControl, InputGroup, Dropdown } from "react-bootstrap";
-import Carousel from "./Carousel";
-export default class NavBar extends Component {
+import { Link, withRouter } from "react-router-dom";
+class NavBar extends Component {
   state = {
     query: "",
   };
+
   handleSearch = (queryInp) => {
     this.setState({ query: queryInp });
   };
@@ -23,7 +23,7 @@ export default class NavBar extends Component {
             >
               <div className="d-flex">
                 <div href="#home">
-                  <a className="navbar-brand" href="#home">
+                  <Link to="/" className="navbar-brand">
                     <img
                       alt="Logo"
                       id="logo"
@@ -31,14 +31,14 @@ export default class NavBar extends Component {
                       src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
                       style={{ width: "6rem" }}
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div className="d-flex nav-items">
-                  <a href="#home">Home</a>
-                  <a href="#features">TV Showes</a>
-                  <a href="#pricing">Movies</a>
-                  <a href="#pricing">Recently Added</a>
-                  <a href="#pricing">My List</a>
+                  <Link to="/">Home</Link>
+                  <Link to="/tvShow">TV Shows</Link>
+                  <Link to="/">Recently Updated</Link>
+                  <Link to="/">My List</Link>
+                  <Link to="/">Profile</Link>
                 </div>
               </div>
               <div className="d-flex right-side">
@@ -110,9 +110,8 @@ export default class NavBar extends Component {
             </div>
           </div>
         </div>
-        <Carousel />
-        <ListMovies query={this.state.query} />
       </div>
     );
   }
 }
+export default withRouter(NavBar);
