@@ -7,8 +7,12 @@ class NavBar extends Component {
     query: "",
   };
 
-  handleSearch = (queryInp) => {
-    this.setState({ query: queryInp });
+  handleSearch = (e) => {
+    if (e.keyCode === 13 || e.key === "Enter") {
+      this.props.handler(this.state.query);
+    } else {
+      this.setState({ query: e.currentTarget.value });
+    }
   };
 
   render() {
@@ -65,7 +69,9 @@ class NavBar extends Component {
                     aria-label="Recipient's username"
                     aria-describedby="basic-addon2"
                     className="inpu"
-                    onChange={(e) => this.handleSearch(e.target.value)}
+                    onKeyDown={this.handleSearch}
+                    onChange={this.handleSearch}
+                    value={this.state.query}
                   />
                 </InputGroup>
                 <svg

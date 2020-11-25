@@ -36,7 +36,6 @@ export default class ListMovies extends Component {
       } else if (query === "batman") {
         this.setState({ batman: movies.slice(0, 6), loading: false });
       } else if (movies) {
-        console.log(movies);
         this.setState({ searchQuery: movies, loading: false });
       } else {
         this.setState({ searchQuery: this.state.emptyQuery, loading: false });

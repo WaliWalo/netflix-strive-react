@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
+import React, { useState } from "react";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -10,17 +10,22 @@ import TvShows from "./components/TvShows";
 function App() {
   //state
   //function changes state
+  const [query, setQuery] = useState("");
+
+  let handler = (query) => {
+    setQuery(query);
+  };
 
   return (
     <div className="App">
       <Router>
-        <NavBar />
+        <NavBar handler={handler} />
         <Route
           path="/"
           exact
           render={(
             props // props are history, location, match
-          ) => <Home title="Home" {...props} />} // in this way you can pass your own props along with the router ones
+          ) => <Home title="Home" {...props} query={query} />} // in this way you can pass your own props along with the router ones
         />
         <Route
           path="/details/:id"
