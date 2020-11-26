@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import ShowDetail from "./components/ShowDetail";
 import Home from "./components/Home";
 import TvShows from "./components/TvShows";
+import Registration from "./components/Registration";
+
 function App() {
   //state
   //function changes state
@@ -36,6 +38,11 @@ function App() {
           path="/tvShow/"
           exact
           render={(props) => <TvShows title="TV SHOWS" {...props} />}
+        />
+        <Route
+          path="/registration"
+          exact
+          render={(props) => <Registration {...props} />}
         />
 
         <Footer />
