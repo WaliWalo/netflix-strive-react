@@ -103,11 +103,15 @@ class NavBar extends Component {
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Link to="/registration">
-                      <Dropdown.Item href="#/action-1">Login</Dropdown.Item>
+                    <Link to="/login" className="dropdown-item">
+                      Login
                     </Link>
-                    <Dropdown.Item href="#/action-2">Register</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
+                    <Link to="/registration" className="dropdown-item">
+                      Register
+                    </Link>
+                    <Link to="/" className="dropdown-item">
+                      Logout
+                    </Link>
                   </Dropdown.Menu>
                 </Dropdown>
               </div>

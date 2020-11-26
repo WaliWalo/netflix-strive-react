@@ -8,15 +8,24 @@ import ShowDetail from "./components/ShowDetail";
 import Home from "./components/Home";
 import TvShows from "./components/TvShows";
 import Registration from "./components/Registration";
+import Login from "./components/Login";
 
 function App() {
   //state
   //function changes state
   const [query, setQuery] = useState("");
+  const [user, setUser] = useState();
+  const [login, setLogin] = useState(false);
 
   let handler = (query) => {
     setQuery(query);
   };
+
+  let userHandler = (user) => {
+    setUser(user);
+  };
+
+  let loginHandler = login;
 
   return (
     <div className="App">
@@ -42,7 +51,12 @@ function App() {
         <Route
           path="/registration"
           exact
-          render={(props) => <Registration {...props} />}
+          render={(props) => <Registration {...props} handler={userHandler} />}
+        />
+        <Route
+          path="/login"
+          exact
+          render={(props) => <Login {...props} user={user} />}
         />
 
         <Footer />

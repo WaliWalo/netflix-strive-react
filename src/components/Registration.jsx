@@ -38,6 +38,7 @@ export default class Registration extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.handleShow();
+    this.props.handler(this.state.user);
   };
 
   checkValidation = () => {
