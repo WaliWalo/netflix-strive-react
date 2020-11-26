@@ -15,6 +15,10 @@ class NavBar extends Component {
     }
   };
 
+  handleLogout = () => {
+    this.props.logout();
+  };
+
   render() {
     return (
       <div>
@@ -103,15 +107,26 @@ class NavBar extends Component {
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Link to="/login" className="dropdown-item">
-                      Login
-                    </Link>
-                    <Link to="/registration" className="dropdown-item">
-                      Register
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Logout
-                    </Link>
+                    {!this.props.loginStatus && (
+                      <>
+                        <Link to="/login" className="dropdown-item">
+                          Login
+                        </Link>
+                        <Link to="/registration" className="dropdown-item">
+                          Register
+                        </Link>
+                      </>
+                    )}
+
+                    {this.props.loginStatus && (
+                      <Link
+                        to="/"
+                        className="dropdown-item"
+                        onClick={this.handleLogout}
+                      >
+                        Logout
+                      </Link>
+                    )}
                   </Dropdown.Menu>
                 </Dropdown>
               </div>

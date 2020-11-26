@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 
-export default class Login extends Component {
+class Login extends Component {
   state = {
     user: { email: "", password: "" },
   };
@@ -20,6 +21,8 @@ export default class Login extends Component {
       this.state.user.password === this.props.user.password
     ) {
       alert("Login Succesful");
+      this.props.history.push("/");
+      this.props.loginHandler(true);
     } else {
       alert("Wrong email or password");
     }
@@ -70,3 +73,4 @@ export default class Login extends Component {
     );
   }
 }
+export default withRouter(Login);

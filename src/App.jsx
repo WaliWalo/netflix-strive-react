@@ -25,12 +25,18 @@ function App() {
     setUser(user);
   };
 
-  let loginHandler = login;
+  let loginHandler = (loginStatus) => {
+    setLogin(loginStatus);
+  };
+
+  let logout = () => {
+    setLogin(false);
+  };
 
   return (
     <div className="App">
       <Router>
-        <NavBar handler={handler} />
+        <NavBar handler={handler} loginStatus={login} logout={logout} />
         <Route
           path="/"
           exact
@@ -56,7 +62,9 @@ function App() {
         <Route
           path="/login"
           exact
-          render={(props) => <Login {...props} user={user} />}
+          render={(props) => (
+            <Login {...props} user={user} loginHandler={loginHandler} />
+          )}
         />
 
         <Footer />
